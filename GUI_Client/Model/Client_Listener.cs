@@ -11,7 +11,8 @@ namespace GUI_Client.ViewModel
     {
         public delegate void Publish_msg(string msg); // делегат для ивента  нового сообщения
         public event Publish_msg Notyfy_new_msg; // событие нового сообщения
-        private string _ip = "192.168.1.105"; // ip соединения
+       // private string _ip = "192.168.1.105"; // ip соединения
+        private string _ip = "127.0.0.1"; // ip соединения
         private int _port = 9999; // порт соединения
         private TcpClient _client = new TcpClient(); // тсп клиент для передачи данных по тсп протоколу
         private bool _is_listen = false;

@@ -12,7 +12,8 @@ namespace server
    public class Server : IDisposable
     {
         private bool _is_listen = true;
-        private string _ip = "192.168.1.105";
+       // private string _ip = "192.168.1.105";
+        private string _ip = "127.0.0.1";
         private int _port = 9999;
         private TcpListener _listener; // слушатель для входящих сообщений
         public Server()
