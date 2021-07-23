@@ -11,7 +11,6 @@ namespace GUI_Client.ViewModel
     {
         public delegate void Publish_msg(string msg); // делегат для ивента  нового сообщения
         public event Publish_msg Notyfy_new_msg; // событие нового сообщения
-        private NetworkStream _stream; // поток для пролучения сообщений
         private string _ip = "192.168.1.105"; // ip соединения
         private int _port = 9999; // порт соединения
         private TcpClient _client = new TcpClient(); // тсп клиент для передачи данных по тсп протоколу
@@ -56,7 +55,7 @@ namespace GUI_Client.ViewModel
                                Notyfy_new_msg?.Invoke(builder.ToString()); // вызов события нового сообщения
                          }
                    }
-                   catch (Exception ex)
+                   catch (Exception)
                    {
                        MessageBox.Show("Вы отключены от сервера", "ошибка прослушивания", MessageBoxButton.OK);
                        Disconnect();
@@ -75,7 +74,7 @@ namespace GUI_Client.ViewModel
                 // отправка сообщения
                 _client.GetStream().Write(data, 0, data.Length);
             }
-            catch (Exception ex) { MessageBox.Show("Вы не подключены", "ошибка отправки", MessageBoxButton.OK);}
+            catch (Exception) { MessageBox.Show("Вы не подключены", "ошибка отправки", MessageBoxButton.OK);}
         }
         public void Dispose() => _client.Dispose();
         public void Send_test_command()
