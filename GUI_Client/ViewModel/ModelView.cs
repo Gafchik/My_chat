@@ -64,7 +64,7 @@ namespace GUI_Client
                     try 
                     {
                         _listener.Send_test_command();
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1000);
                     }
                     catch (Exception) {  _get_connection = false; Disconnect.Execute(_get_connection);  }
                 }
